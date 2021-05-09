@@ -11,8 +11,7 @@ function compute(){
     const years = document.querySelector("#years").value;
     let principal = document.querySelector("#principal");
     const year = new Date().getFullYear()+parseInt(years);
-    const interest = parseInt(principal.value) * years * rate /100;
-    const amount = parseInt(interest) + parseInt(principal.value)
+    const interest = (parseInt(principal.value) * years * rate) /100;
     const rate_val = document.getElementById("rate_val");
     rate_val.innerText = rate
     const result = document.getElementById("result")
@@ -22,6 +21,7 @@ function compute(){
         principal.focus();
         return false;
   }
-  result.innerHTML = "If you deposit "+principal.value+",\<br\>at an interest rate of "+rate+"%\<br\>You will receive an amount of "+amount+",\<br\>in the year "+year+"\<br\>"
+  
+  result.innerHTML = "If you deposit <span>"+principal.value+"</span><br\>at an interest rate of <span>"+rate+"%</span><br\>You will receive an amount of <span>"+interest+"</span>,<br\>in the year <span>"+year+"</span><br\>"
  return true
 }
